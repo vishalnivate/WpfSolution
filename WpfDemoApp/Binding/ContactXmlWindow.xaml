@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfDemoApp.Binding.ContactXmlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemoApp.Binding"
+        mc:Ignorable="d"
+        Title="ContactXmlWindow" Height="300" Width="450">
+    <Window.Resources>
+        <XmlDataProvider x:Key="ContactXml" Source="Contacts.xml"
+                         XPath="contacts/contact"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ContactXml}">
+        <Grid.Resources>
+            <DataTemplate x:Key="ContactTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Border Style="{StaticResource DisplayBorder}">
+                        <TextBlock Text="{Binding XPath=Name}" 
+                     Style="{StaticResource LDisplayTextBlock}"/>
+                   </Border>
+                    <Border Style="{StaticResource  BlackBorder}">
+                        <TextBlock Text="{Binding XPath=tel}"
+                               Style="{StaticResource LDisplayTextBlock}"/>
+                    </Border>
+                    <Border Style="{StaticResource DisplayBorder}">
+                        <TextBlock Text="{Binding XPath=email}" 
+                     Style="{StaticResource RDisplayTextBlock}"/>
+                    </Border>
+                </StackPanel>
+            </DataTemplate>
+        </Grid.Resources>
+        <ListBox Margin="10" ItemsSource="{Binding}" 
+                 ItemTemplate="{StaticResource ContactTemplate}"/>
+    </Grid>
+</Window>

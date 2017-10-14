@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<contacts>
+  <contact>
+    <Name>Vishal</Name>
+    <tel>12654</tel>
+    <email>n@gmail.com</email>
+  </contact>
+  <contact>
+    <Name>Rahul</Name>
+    <tel>7896654</tel>
+    <email>r@gmail.com</email>
+  </contact>
+  <contact>
+    <Name>Deepak</Name>
+    <tel>147852</tel>
+    <email>d@gmail.com</email>
+  </contact>
+  <contact>
+    <Name>Siddhesh</Name>
+    <tel>369852</tel>
+    <email>s@gmail.com</email>
+  </contact>
+  <contact>
+    <Name>Nikita</Name>
+    <tel>159632</tel>
+    <email>ni@gmail.com</email>
+  </contact>
+</contacts>

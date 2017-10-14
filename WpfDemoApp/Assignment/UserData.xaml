@@ -1,0 +1,68 @@
+﻿<Window x:Class="WpfDemoApp.Assignment.UserData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemoApp.Assignment"
+        mc:Ignorable="d"
+        Title="UserData" Height="500" Width="610">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Width="600" >
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Style="{StaticResource txtBlock}"><Run Text="UserName"/></TextBlock>
+                <TextBox x:Name="txtName" Canvas.Top="81" Width="272" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Style="{StaticResource txtBlock}"><Run Text="Age"/></TextBlock>
+                <TextBox x:Name="txtAge" Canvas.Top="81" Width="272" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Style="{StaticResource txtBlock}"><Run Text="Fav Color"/></TextBlock>
+                <TextBox x:Name="txtFavColor" Canvas.Top="81" Width="272" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button  x:Name="btnAddUser" Width="150" 
+                        Height="30"  BorderThickness="2" 
+                        Content="Add User" Click="btnAddUser_Click"/>
+            </StackPanel>
+            <StackPanel Height="200">
+                <StackPanel.Resources>
+                    <DataTemplate x:Key="ContactTemplate">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Style="{StaticResource DisplayBorder}">
+                                <TextBlock Text="{Binding Username}" 
+                                Style="{StaticResource LDisplayTextBlock}"/>
+                            </Border>
+                            <Border Style="{StaticResource  BlackBorder}">
+                                <TextBlock Text="{Binding Age}"
+                               Style="{StaticResource LDisplayTextBlock}"/>
+                            </Border>
+                            <Border Style="{StaticResource DisplayBorder}">
+                                <TextBlock Text="{Binding Favcolor}" 
+                              Style="{StaticResource RDisplayTextBlock}"/>
+                            </Border>
+                            <Ellipse  Height="25" Width="120" Fill="{Binding Favcolor}" />
+                            <Image Height="50" Width="35" Source="{Binding Image}"></Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </StackPanel.Resources>
+                <ListBox Margin="10" ItemsSource="{Binding}"
+                 ItemTemplate="{StaticResource ContactTemplate}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Style="{StaticResource txtBlock1}"><Run Text="UserName"/></TextBlock>
+                <TextBox x:Name="Name" Text="{Binding Username,Mode=TwoWay}" Canvas.Top="81" Width="120" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+
+                <TextBlock Style="{StaticResource txtBlock1}"><Run Text="Age"/></TextBlock>
+                <TextBox x:Name="Age" Text="{Binding Age,Mode=TwoWay}" Canvas.Top="81" Width="120" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+
+                <TextBlock Style="{StaticResource txtBlock1}"><Run Text="Fav Color"/></TextBlock>
+                <TextBox x:Name="FavColor" Text="{Binding Favcolor,Mode=TwoWay}" Canvas.Top="81" Width="120" Height="29" BorderBrush="Cyan" BorderThickness="2" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
